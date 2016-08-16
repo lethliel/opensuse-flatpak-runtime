@@ -1,20 +1,19 @@
 #!/bin/sh
 
-TARGET=buildroot-prepare
-rm -fr $TARGET
-mkdir $TARGET
-mkdir $TARGET/{var,dev,proc,run,sys,sysroot}
-ln -s ../var/opt $TARGET/opt
-ln -s ../var/srv $TARGET/srv
-ln -s ../var/mnt $TARGET/mnt
-ln -s ../var/roothome $TARGET/root
-ln -s ../var/home $TARGET/home
-ln -s ../run/media $TARGET/media
-ln -s ../sysroot/ostree $TARGET/ostree
-ln -s ../sysroot/tmp $TARGET/tmp
 
-mv buildroot/usr $TARGET/usr
-mv buildroot/etc $TARGET/etc
-ln -s var/lib/rpm $TARGET/usr/share/rpm
-mv $TARGET/usr/local $TARGET/var/usrlocal
+PREFIX=/tmp/flat
+TARGET=$PREFIX/buildroot-prepare/files
+ROOT=$PREFIX/buildroot
+sudo rm -fr $TARGET
+mkdir -p $TARGET
+sudo cp metadata.runtime /tmp/flat/buildroot-prepare/
+mv $ROOT/usr/* $TARGET/
+cp $ROOT/bin/bash $TARGET/bin/
+rm $TARGET/bin/sh
+cd $TARGET/bin 
+ln -s bin/bash sh
+mv $ROOT/etc/ $TARGET/
+mv $ROOT/app $TARGET/
 
+mkdir -p $TARGET/share/
+ln -s $ROOT/var/lib/rpm $TARGET/share/rpm
