@@ -6,8 +6,9 @@ TARGET=$PREFIX/buildroot-prepare/files
 ROOT=$PREFIX/buildroot
 sudo rm -fr $TARGET
 mkdir -p $TARGET
-sudo cp metadata.runtime /tmp/flat/buildroot-prepare/
+sudo cp metadata.runtime $PREFIX/buildroot-prepare/
 mv $ROOT/usr/* $TARGET/
+cp -r --preserve=links $ROOT/lib64/* $TARGET/lib64/
 cp $ROOT/bin/bash $TARGET/bin/
 rm $TARGET/bin/sh
 cd $TARGET/bin 
