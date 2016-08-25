@@ -52,19 +52,19 @@ repo/refs/heads/runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION): repo/refs/heads
 
 exportrepo/refs/heads/runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION): repo/refs/heads/runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION) exportrepo/config
 	ostree pull-local --repo=$(TARGET_DIR)/exportrepo $(TARGET_DIR)/repo runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION)
-	xdg-app build-update-repo $(TARGET_DIR)/exportrepo
+	flatpak build-update-repo $(TARGET_DIR)/exportrepo
 
 exportrepo/refs/heads/runtime/org.openSUSE.Runtime.Var/$(ARCH)/$(VERSION): repo/refs/heads/runtime/org.openSUSE.Runtime.Var/$(ARCH)/$(VERSION) exportrepo/config
 	ostree pull-local --repo=$(TARGET_DIR)/exportrepo $(TARGET_DIR)/repo runtime/org.openSUSE.Runtime.Var/$(ARCH)/$(VERSION)
-	xdg-app build-update-repo $(TARGET_DIR)/exportrepo
+	flatpak build-update-repo $(TARGET_DIR)/exportrepo
 
 exportrepo/refs/heads/runtime/org.openSUSE.Sdk/$(ARCH)/$(VERSION): repo/refs/heads/runtime/org.openSUSE.Sdk/$(ARCH)/$(VERSION) exportrepo/config
 	ostree pull-local --repo=$(TARGET_DIR)/exportrepo $(TARGET_DIR)/repo runtime/org.openSUSE.Sdk/$(ARCH)/$(VERSION)
-	xdg-app build-update-repo $(TARGET_DIR)/exportrepo
+	flatpak build-update-repo $(TARGET_DIR)/exportrepo
 
 exportrepo/refs/heads/runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION): repo/refs/heads/runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION) exportrepo/config
 	ostree pull-local --repo=$(TARGET_DIR)/exportrepo $(TARGET_DIR)/repo runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION)
-	xdg-app build-update-repo $(TARGET_DIR)/exportrepo
+	flatpak build-update-repo $(TARGET_DIR)/exportrepo
 
 platform: exportrepo/refs/heads/runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION) 
 sdk: exportrepo/refs/heads/runtime/org.openSUSE.Sdk/$(ARCH)/$(VERSION) 
