@@ -12,7 +12,7 @@ cp -r --preserve=links $ROOT/lib64/* $TARGET/lib64/
 cp $ROOT/bin/bash $TARGET/bin/
 rm $TARGET/bin/sh
 cd $TARGET/bin 
-ln -s bin/bash sh
+ln -s bash sh
 mv $ROOT/etc/ $TARGET/
 mv $ROOT/app $TARGET/
 
