@@ -10,7 +10,7 @@
       "sources": [
 	{
 	  "type": "archive",
-	  "path": "/home/marco/screen-4.3.1.tar.gz"
+	  "path": "screen-4.3.1.tar.gz"
 	}
       ]
     }
