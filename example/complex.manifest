@@ -1,0 +1,59 @@
+{
+  "app-id": "my.suse.deptest",
+  "runtime": "org.openSUSE.Runtime",
+  "runtime-version": "1",
+  "sdk": "org.openSUSE.Sdk",
+  "command": "totem", 
+  "writable-sdk": true,
+  "modules": [
+    {
+      "name": "perl-XML-Parser",
+      "no-autogen": true,
+      "build-options": {
+        "no-debuginfo": true 
+      },
+      "sources": [
+        {
+          "type": "archive",
+          "path": "/home/marco/XML-Parser-2.44.tar.gz"
+        },
+        {
+          "type": "shell",
+          "commands": [ "perl Makefile.PL" ]
+        }
+      ]
+    },
+    {
+      "name": "intltool",
+      "sources": [
+        {
+          "type": "archive",
+          "path": "/home/marco/intltool-0.51.0.tar.gz"
+        }
+      ]
+    },
+    {
+      "name": "glib2",
+      "sources": [
+        {
+          "type": "file",
+          "path": "/home/marco/glib2-2.44.1-2.3.src.rpm",
+          "dest": "/tmp"
+        },
+        {
+          "type": "shell",
+          "commands": [ "rpm -i /tmp/glib2-2.44.1-2.3.src.rpm" ]
+        }
+      ]
+    },
+    {
+      "name": "libpeas",
+      "sources": [
+        {
+          "type": "archive",
+          "path": "/home/marco/libpeas-1.14.0.tar.xz"
+        }
+      ]
+    }
+  ]
+}

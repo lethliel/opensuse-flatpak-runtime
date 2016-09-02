@@ -118,6 +118,7 @@
         <package name="glew-devel"/>
         <package name="libpulse-devel"/>
 	<package name="ncurses-devel" />
+        <package name="rpm" />
     </packages>
     <packages type="bootstrap">
     <!--    <package name="udev"/>-->
