@@ -42,13 +42,15 @@ repo/refs/heads/runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION): repo/refs/heads
 	./commit-subtree.sh base/org.openSUSE.Runtime/$(ARCH)/$(VERSION) runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION) metadata.runtime /files files
 
 repo/refs/heads/runtime/org.openSUSE.Runtime.Var/$(ARCH)/$(VERSION): repo/refs/heads/base/org.openSUSE.Runtime/$(ARCH)/$(VERSION) metadata.runtime
-	./commit-subtree.sh base/org.openSUSE.Runtime/$(ARCH)/$(VERSION) runtime/org.openSUSE.Runtime.Var/$(ARCH)/$(VERSION) metadata.runtime /var files /usr/share/rpm files/lib/rpm
+	./commit-subtree.sh base/org.openSUSE.Runtime/$(ARCH)/$(VERSION) runtime/org.openSUSE.Runtime.Var/$(ARCH)/$(VERSION) metadata.runtime /var files
+	#./commit-subtree.sh base/org.openSUSE.Runtime/$(ARCH)/$(VERSION) runtime/org.openSUSE.Runtime.Var/$(ARCH)/$(VERSION) metadata.runtime /var files /usr/share/rpm files/lib/rpm
 
 repo/refs/heads/runtime/org.openSUSE.Sdk/$(ARCH)/$(VERSION): repo/refs/heads/base/org.openSUSE.Sdk/$(ARCH)/$(VERSION) metadata.sdk
 	./commit-subtree.sh base/org.openSUSE.Sdk/$(ARCH)/$(VERSION) runtime/org.openSUSE.Sdk/$(ARCH)/$(VERSION) metadata.sdk /files files
 
 repo/refs/heads/runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION): repo/refs/heads/base/org.openSUSE.Sdk/$(ARCH)/$(VERSION) metadata.sdk
-	./commit-subtree.sh base/org.openSUSE.Sdk/$(ARCH)/$(VERSION) runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION) metadata.sdk /var files /usr/share/rpm files/lib/rpm
+	./commit-subtree.sh base/org.openSUSE.Sdk/$(ARCH)/$(VERSION) runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION) metadata.sdk /var files 
+	#./commit-subtree.sh base/org.openSUSE.Sdk/$(ARCH)/$(VERSION) runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION) metadata.sdk /var files /usr/share/rpm files/lib/rpm
 
 exportrepo/refs/heads/runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION): repo/refs/heads/runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION) exportrepo/config
 	ostree pull-local --repo=$(TARGET_DIR)/exportrepo $(TARGET_DIR)/repo runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION)
@@ -66,6 +68,6 @@ exportrepo/refs/heads/runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION): repo/refs
 	ostree pull-local --repo=$(TARGET_DIR)/exportrepo $(TARGET_DIR)/repo runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION)
 	flatpak build-update-repo $(TARGET_DIR)/exportrepo
 
-platform: exportrepo/refs/heads/runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION) 
-sdk: exportrepo/refs/heads/runtime/org.openSUSE.Sdk/$(ARCH)/$(VERSION) 
+platform: exportrepo/refs/heads/runtime/org.openSUSE.Runtime/$(ARCH)/$(VERSION) exportrepo/refs/heads/runtime/org.openSUSE.Runtime.Var/$(ARCH)/$(VERSION)
+sdk: exportrepo/refs/heads/runtime/org.openSUSE.Sdk/$(ARCH)/$(VERSION) exportrepo/refs/heads/runtime/org.openSUSE.Sdk.Var/$(ARCH)/$(VERSION) 
 

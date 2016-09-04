@@ -3,9 +3,12 @@
 
 PREFIX=/tmp/flat
 TARGET=$PREFIX/buildroot-prepare/files
+TARGET_VAR=$PREFIX/buildroot-prepare/var
 ROOT=$PREFIX/buildroot
 sudo rm -fr $TARGET
+sudo rm -fr $TARGET_VAR
 mkdir -p $TARGET
+mkdir -p $TARGET_VAR
 sudo cp metadata.runtime $PREFIX/buildroot-prepare/
 mv $ROOT/usr/* $TARGET/
 cp -r --preserve=links $ROOT/lib64/* $TARGET/lib64/
@@ -19,3 +22,4 @@ mv $ROOT/app $TARGET/
 
 mkdir -p $TARGET/share/
 ln -s $ROOT/var/lib/rpm $TARGET/share/rpm
+mkdir -p $TARGET/var
