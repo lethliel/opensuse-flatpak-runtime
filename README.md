@@ -1,6 +1,6 @@
 # flatpak-runtime
 
-A openSUSE Leap based runtime for [Flatpak](http://www.flatpak.org).
+An openSUSE Leap based runtime for [Flatpak](http://www.flatpak.org).
 
 The scripts are based on the one from centos-flatpak-runtime.
 
@@ -20,10 +20,11 @@ flatpak --user install opensuse org.openSUSE.Runtime 1
 flatpak --user install opensuse org.openSUSE.Sdk 1
 ```
 
-An examle manifest is placed under examples/screen/ and can be build with 
+An examle manifest is placed under examples/screen.manifest and can be build with 
+An even more complex manifest can be found under examples/complex.manifest (This one doesn't work yet but illustrates what can be done within a manifest) 
 
 ```shell
-flatpak-builder --repo=/tmp/my_repo /tmp/build examples/screen/screen.manifest
+flatpak-builder --repo=/tmp/my_repo /tmp/build examples/screen.manifest
 ```
 
 The app screen is build and placed in the repository my_repo in tmp

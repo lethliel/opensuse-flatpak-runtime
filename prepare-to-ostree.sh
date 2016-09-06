@@ -1,14 +1,18 @@
 #!/bin/sh
 
-
+#define Dirs
 PREFIX=/tmp/flat
 TARGET=$PREFIX/buildroot-prepare/files
 TARGET_VAR=$PREFIX/buildroot-prepare/var
 ROOT=$PREFIX/buildroot
+
+#clean TARGETS
 sudo rm -fr $TARGET
 sudo rm -fr $TARGET_VAR
 mkdir -p $TARGET
 mkdir -p $TARGET_VAR
+
+#build TARGET
 sudo cp metadata.runtime $PREFIX/buildroot-prepare/
 mv $ROOT/usr/* $TARGET/
 cp -r --preserve=links $ROOT/lib64/* $TARGET/lib64/

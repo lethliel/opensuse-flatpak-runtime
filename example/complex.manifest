@@ -1,9 +1,9 @@
 {
-  "app-id": "my.suse.deptest",
+  "app-id": "org.suse.complex",
   "runtime": "org.openSUSE.Runtime",
   "runtime-version": "1",
   "sdk": "org.openSUSE.Sdk",
-  "command": "totem", 
+  "command": "complex_example", 
   "writable-sdk": true,
   "modules": [
     {
@@ -15,7 +15,7 @@
       "sources": [
         {
           "type": "archive",
-          "path": "/home/marco/XML-Parser-2.44.tar.gz"
+          "path": "/path/to/XML-Parser-2.44.tar.gz"
         },
         {
           "type": "shell",
@@ -28,7 +28,7 @@
       "sources": [
         {
           "type": "archive",
-          "path": "/home/marco/intltool-0.51.0.tar.gz"
+          "path": "/path/to/intltool-0.51.0.tar.gz"
         }
       ]
     },
@@ -37,7 +37,7 @@
       "sources": [
         {
           "type": "file",
-          "path": "/home/marco/glib2-2.44.1-2.3.src.rpm",
+          "path": "/path/to/glib2-2.44.1-2.3.src.rpm",
           "dest": "/tmp"
         },
         {
@@ -51,7 +51,7 @@
       "sources": [
         {
           "type": "archive",
-          "path": "/home/marco/libpeas-1.14.0.tar.xz"
+          "path": "/path/to/libpeas-1.14.0.tar.xz"
         }
       ]
     }
